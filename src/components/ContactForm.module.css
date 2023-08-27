@@ -1,0 +1,18 @@
+
+
+.formContainer {
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+  }
+  
+  .inputField {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  .errorText {
+    color: red;
+  }
+  
