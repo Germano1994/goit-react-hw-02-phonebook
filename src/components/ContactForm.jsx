@@ -4,7 +4,6 @@ import * as Yup from 'yup';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './ContactForm.module.css';
 
-
 const validationSchema = Yup.object().shape({
   name: Yup.string()
     .matches(/^[a-zA-Zа-яА-Я\s'-]*$/, 'Only letters, spaces, apostrophes, and dashes allowed')
@@ -15,7 +14,6 @@ const validationSchema = Yup.object().shape({
     .matches(/^[0-9-]*$/, 'Should only contain digits and hyphens')
     .required('Please enter a phone number'),
 });
-
 
 const ContactForm = ({ contacts, onAddContact }) => {
   const initialValues = {
@@ -38,18 +36,18 @@ const ContactForm = ({ contacts, onAddContact }) => {
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
-      <Form>
-        <label>
+      <Form className={styles.form}>
+        <label className={styles.label}>
           Name
-          <Field type="text" name="name" />
-          <ErrorMessage name="name" component="div" />
+          <Field type="text" name="name" className={styles.input} />
+          <ErrorMessage name="name" component="div" className={styles.error} />
         </label>
-        <label>
+        <label className={styles.label}>
           Phone Number
-          <Field type="tel" name="number" inputMode="numeric" />
-          <ErrorMessage name="number" component="div" />
+          <Field type="tel" name="number" inputMode="numeric" className={styles.input} />
+          <ErrorMessage name="number" component="div" className={styles.error} />
         </label>
-        <button type="submit">Add Contact</button>
+        <button type="submit" className={styles.button}>Add Contact</button>
       </Form>
     </Formik>
   );
